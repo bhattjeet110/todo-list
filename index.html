@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="./style.css">
+    <title>Todo List</title>
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <h1 style="font-family: system-ui;font-weight: 500;color: white;">Todoey!</h1>
+            <button class="btn">Clear All</button>
+        </div>
+        <div class="form-container">
+            <form id="itemForm">
+                <div class="form-group">
+                    <label for="name">Todo</label>
+                    <input class="inputItem" type="text" id="title" name="title" placeholder="Add Task">
+                </div>
+                <div class="form-group">
+                    <label for="option">Importance</label>
+                    <select  class="itemInput" id="select" name="select">
+                        <option style="background-color: white; color: black;" value="">Importance</option>
+                        <option style="background-color: white; color: black;" value="Less Important">Less Important
+                        <option style="background-color: white; color: black;" value="Important">Important</option>
+                        <option style="background-color: white; color: black;" value="More Important">More Important
+                        </option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <button type="Submit" id="Submit" class="add-button btn">Add</button>
+                </div>
+                <div class="form-group">
+                    <button class="all-button btn filters">All</button>
+                    <button class="completed-button btn filters">Completed</button>
+                    <button class="uncompleted-button btn filters">Uncompleted</button>
+                </div>
+                <div id="itemList">
+                    <!-- <div class="messageBox" id="itemList">
+
+                        <div class="vl">
+                            <div style="margin-left: 1rem;">
+                                <h5>asfadddgas</h5>
+                                <p>grgrbhj</p>
+                            </div>
+                        </div>
+
+                        <div>
+                            <button class="clear-button">
+                                <i class="fa-solid fa-check"></i>
+                            </button>
+                            <button class="clear-button">
+                                <i class="fas fa-trash-alt"></i>
+                            </button>
+
+                        </div>
+                    </div> -->
+                </div>
+
+            </form>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+
+</html>
