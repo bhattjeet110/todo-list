@@ -16,7 +16,7 @@
     <div class="container">
         <div class="header">
             <h1 style="font-family: system-ui;font-weight: 500;color: white;">Todoey!</h1>
-            <button class="btn">Clear All</button>
+            <button class="btn" id="clearAll">Clear All</button>
         </div>
         <div class="form-container">
             <form id="itemForm">
@@ -26,7 +26,7 @@
                 </div>
                 <div class="form-group">
                     <label for="option">Importance</label>
-                    <select  class="itemInput" id="select" name="select">
+                    <select class="itemInput" id="select" name="select">
                         <option style="background-color: white; color: black;" value="">Importance</option>
                         <option style="background-color: white; color: black;" value="Less Important">Less Important
                         <option style="background-color: white; color: black;" value="Important">Important</option>
@@ -39,9 +39,9 @@
                     <button type="Submit" id="Submit" class="add-button btn">Add</button>
                 </div>
                 <div class="form-group">
-                    <button class="all-button btn filters">All</button>
-                    <button class="completed-button btn filters">Completed</button>
-                    <button class="uncompleted-button btn filters">Uncompleted</button>
+                    <button class="all-button btn filters" id="selectAll">All</button>
+                    <button class="completed-button btn filters" id="selectCompleted">Completed</button>
+                    <button class="uncompleted-button btn filters" id="selectUncompleted">Uncompleted</button>
                 </div>
                 <div id="itemList">
                     <!-- <div class="messageBox" id="itemList">
