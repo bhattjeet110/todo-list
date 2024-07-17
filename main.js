@@ -87,12 +87,10 @@ function createListItem(todos) {
 
     if (todo.completed) {
       checkIcon.classList.add("select-button");
-      checkIcon.classList.add("disabled");
     }
     checkIcon.addEventListener("click", function () {
       todoDiv.classList.add("checked"); // text-decoration: line-through;
-      checkIcon.classList.add("select-button"); // select button - color change;
-      checkIcon.classList.add("disabled"); // disabled
+      checkIcon.classList.add("select-button"); // select button - color change and disabled;
       completeTodo(todo.id);
     });
 

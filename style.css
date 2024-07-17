@@ -203,8 +203,5 @@ input::placeholder {
 
 .select-button {
 background-color: green !important;
-}
-
-.disabled {
-    pointer-events: none;
+pointer-events: none;
 }
