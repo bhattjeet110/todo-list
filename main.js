@@ -9,32 +9,43 @@ const selectUncompleted = document.getElementById("selectUncompleted");
 
 let todos = [];
 
-itemForm.addEventListener("submit", function (event) {
-
+itemForm.addEventListener("submit", (event) => {
   event.preventDefault();
-  // console.log("hii");
   // console.log(titleInput.value, selectInput.value);
   addTodo();
 });
 
 // -------------------clearAllTodos() Call--------------------
-clearAll.addEventListener("click", function () {
+clearAll.addEventListener("click", () => {
   clearAllTodos();
 });
 
+//  ------------change Button Color----------------------
+
+function changeButtonColor(buttonName) {
+  selectAll.classList.remove("selected-button");
+  selectCompleted.classList.remove("selected-button");
+  selectUncompleted.classList.remove("selected-button");
+
+  buttonName.classList.add("selected-button");
+}
+
 //----------Filter select All------------------------
-selectAll.addEventListener("click", function () {
+selectAll.addEventListener("click", () => {
   filters("all");
+  changeButtonColor(selectAll);
 });
 
 //----------Filter completed------------------------
-selectCompleted.addEventListener("click", function () {
+selectCompleted.addEventListener("click", () => {
   filters("completed");
+  changeButtonColor(selectCompleted);
 });
 
 //----------Filter uncompleted------------------------
-selectUncompleted.addEventListener("click", function () {
+selectUncompleted.addEventListener("click", () => {
   filters("uncompleted");
+  changeButtonColor(selectUncompleted);
 });
 
 // -------------Add todo Function-----------------------------------
@@ -54,7 +65,6 @@ function addTodo() {
     createListItem(todos); // render todo
     titleInput.value = "";
     selectInput.value = "";
-    // console.log(todos);
   }
 }
 
@@ -65,13 +75,12 @@ function createListItem(todos) {
   todos.forEach(function (todo) {
     //main messageBox
     const li = document.createElement("li");
-    li.setAttribute("class", "messageBox");
-
+    li.classList.add("messageBox");
 
     // todoItem name and Desc Div
     const todoDiv = document.createElement("div");
-    todoDiv.setAttribute("class", "todoItemDesc");
-    todoDiv.innerHTML = `<div class="v1"><div class="first-title">${todo.name}</div><div class="second-title">${todo.select}</div></div>`;
+    todoDiv.classList.add("todoItemDesc");
+    todoDiv.innerHTML = `<div class="v1"><div class="first-title"><h1 class="h1">${todo.name}</h1></div><div class="second-title"><p class="p">${todo.select}</p></div></div>`;
 
     if (todo.completed) {
       todoDiv.classList.add("checked");
@@ -79,7 +88,7 @@ function createListItem(todos) {
 
     // delete and chek buttion div
     const iconDiv = document.createElement("div");
-    iconDiv.setAttribute("class", "iconContainer");
+    iconDiv.classList.add("iconContainer");
 
     // check button
     const checkIcon = document.createElement("i");
@@ -99,7 +108,6 @@ function createListItem(todos) {
     deleteIcon.setAttribute("class", "fa-solid fa-trash-can");
     deleteIcon.addEventListener("click", function () {
       deleteTodo(todo.id);
-      // console.log("todosid", todo.id);
     });
 
     iconDiv.appendChild(checkIcon);
@@ -127,9 +135,9 @@ function getFromLocalStorage() {
 //------------ delete todo------------------------------------------------
 
 function deleteTodo(todoId) {
-  const index = todos.findIndex(function (listOfTodoItem) {
-    return listOfTodoItem.id === todoId;
-  });
+  const index = todos.findIndex(
+    (listOfTodoItem) => listOfTodoItem.id === todoId
+  );
   if (index !== -1) {
     todos.splice(index, 1);
   }
@@ -138,10 +146,11 @@ function deleteTodo(todoId) {
 }
 
 //------------- complete todo----------------------------------------------
+
 function completeTodo(todoId) {
-  const index = todos.findIndex(function (listOfTodoItem) {
-    return listOfTodoItem.id === todoId;
-  });
+  const index = todos.findIndex(
+    (listOfTodoItem) => listOfTodoItem.id === todoId
+  );
 
   if (index !== -1) {
     todos[index].completed = !todos[index].completed;
@@ -163,14 +172,10 @@ function filters(type) {
 
   switch (type) {
     case "uncompleted":
-      filterItems = todos.filter(function (todo) {
-        return !todo.completed;
-      });
+      filterItems = todos.filter((todo) => !todo.completed);
       break;
     case "completed":
-      filterItems = todos.filter(function (todo) {
-        return todo.completed;
-      });
+      filterItems = todos.filter((todo) => todo.completed);
       break;
     default:
       filterItems = todos;
@@ -200,3 +205,6 @@ function validatons() {
   document.getElementById("selectError").innerHTML = selectValue;
 }
 getFromLocalStorage();
+
+
+
