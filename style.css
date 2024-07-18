@@ -173,10 +173,7 @@ h1 {
     color: white;
 }
 
-.vl {
-    border-left: 3px solid green;
-    height: auto;
-  }
+
 
 input::placeholder {
     opacity: 1;
@@ -204,4 +201,19 @@ input::placeholder {
 .select-button {
 background-color: green !important;
 pointer-events: none;
+}
+
+.v1 {
+    border-left: 0.2rem solid #23eaa5 !important;
+    height: auto;
+    padding-left: 0.6rem;
+}
+
+.first-title{
+margin-bottom: 0.5rem;
+margin-top: 0.5rem;
+}
+
+.second-title{
+    margin-bottom: 0.5rem;
 }

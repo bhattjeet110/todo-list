@@ -10,8 +10,9 @@ const selectUncompleted = document.getElementById("selectUncompleted");
 let todos = [];
 
 itemForm.addEventListener("submit", function (event) {
+
   event.preventDefault();
-  // console.log("hii")
+  // console.log("hii");
   // console.log(titleInput.value, selectInput.value);
   addTodo();
 });
@@ -41,7 +42,6 @@ selectUncompleted.addEventListener("click", function () {
 function addTodo() {
   let todoName = titleInput.value;
   let todoSelect = selectInput.value;
-
   if (todoName !== "" && todoSelect !== "") {
     const itemObj = {
       id: Date.now(),
@@ -49,7 +49,6 @@ function addTodo() {
       select: todoSelect,
       completed: false,
     };
-
     todos.push(itemObj);
     addToLocalStorage(todos);
     createListItem(todos); // render todo
@@ -68,10 +67,11 @@ function createListItem(todos) {
     const li = document.createElement("li");
     li.setAttribute("class", "messageBox");
 
+
     // todoItem name and Desc Div
     const todoDiv = document.createElement("div");
     todoDiv.setAttribute("class", "todoItemDesc");
-    todoDiv.innerHTML = `${todo.name}<br>${todo.select}`;
+    todoDiv.innerHTML = `<div class="v1"><div class="first-title">${todo.name}</div><div class="second-title">${todo.select}</div></div>`;
 
     if (todo.completed) {
       todoDiv.classList.add("checked");
@@ -104,7 +104,6 @@ function createListItem(todos) {
 
     iconDiv.appendChild(checkIcon);
     iconDiv.appendChild(deleteIcon);
-
     li.appendChild(todoDiv);
     li.appendChild(iconDiv);
     itemList.appendChild(li);
@@ -178,5 +177,26 @@ function filters(type) {
   }
 
   createListItem(filterItems);
+}
+
+// -------------------------Form Validation---------------------------------
+function validatons() {
+  const titleName = titleInput.value;
+  const selectTodo = selectInput.value;
+  let text;
+  if (titleName === "") {
+    text = "Please Add Task";
+  } else {
+    text = "";
+  }
+  document.getElementById("taskError").innerHTML = text;
+
+  let selectValue;
+  if (selectTodo === "") {
+    selectValue = "Please Select The Importance";
+  } else {
+    selectValue = "";
+  }
+  document.getElementById("selectError").innerHTML = selectValue;
 }
 getFromLocalStorage();
